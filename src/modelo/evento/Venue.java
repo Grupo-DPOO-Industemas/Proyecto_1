@@ -2,9 +2,8 @@ package modelo.evento;
 import modelo.usuario.Administrador;
 import modelo.usuario.OrganizadorDeEventos;
 
-
 public class Venue {
-	
+
     private String ubicacion;
     private int capacidadMaxima;
     private String restriccionesUso;
@@ -12,32 +11,28 @@ public class Venue {
     private Administrador aprobadoPor;
     private OrganizadorDeEventos sugeridoPor;
     private boolean sugeridoPorOrganizador;
-
+    private Evento eventoActual;
 
     public Venue() {
     }
 
     public Venue(String ubicacion, int capacidadMaxima, String restriccionesUso,
                  OrganizadorDeEventos sugeridoPor, boolean sugeridoPorOrganizador) {
-
-        if (capacidadMaxima <= 0) {
+        if (capacidadMaxima <= 0)
             throw new IllegalArgumentException("La capacidad máxima debe ser positiva.");
-        }
-
         this.ubicacion = ubicacion;
         this.capacidadMaxima = capacidadMaxima;
         this.restriccionesUso = restriccionesUso;
-        this.aprobado = false;
-        this.aprobadoPor = null;
         this.sugeridoPor = sugeridoPor;
         this.sugeridoPorOrganizador = sugeridoPorOrganizador;
+        this.aprobado = false;
+        this.aprobadoPor = null;
+        this.eventoActual = null;
     }
 
-
     public void aprobar(Administrador admin) {
-        if (this.aprobado) {
+        if (this.aprobado)
             throw new IllegalStateException("El venue ya fue aprobado previamente.");
-        }
         this.aprobado = true;
         this.aprobadoPor = admin;
     }
@@ -47,7 +42,15 @@ public class Venue {
         this.aprobadoPor = null;
     }
 
+    public void asignarEvento(Evento evento) {
+        if (this.eventoActual != null)
+            throw new IllegalStateException("El venue ya tiene un evento asignado actualmente.");
+        this.eventoActual = evento;
+    }
 
+    public void liberarEvento() {
+        this.eventoActual = null;
+    }
 
     public String getUbicacion() {
         return ubicacion;
@@ -62,9 +65,8 @@ public class Venue {
     }
 
     public void setCapacidadMaxima(int capacidadMaxima) {
-        if (capacidadMaxima <= 0) {
+        if (capacidadMaxima <= 0)
             throw new IllegalArgumentException("La capacidad máxima debe ser positiva.");
-        }
         this.capacidadMaxima = capacidadMaxima;
     }
 
@@ -108,6 +110,13 @@ public class Venue {
         this.sugeridoPorOrganizador = sugeridoPorOrganizador;
     }
 
+    public Evento getEventoActual() {
+        return eventoActual;
+    }
+
+    public void setEventoActual(Evento eventoActual) {
+        this.eventoActual = eventoActual;
+    }
 
     @Override
     public String toString() {
