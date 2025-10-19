@@ -1,7 +1,5 @@
 package modelo.evento;
-
 import java.util.ArrayList;
-
 import modelo.usuario.OrganizadorDeEventos;
 
 public class Evento {
