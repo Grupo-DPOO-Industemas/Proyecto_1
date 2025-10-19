@@ -1,4 +1,4 @@
-package modelo.usuario;
+package logica.usuario;
 
 public abstract class UsuarioConSaldo extends Usuario {
 	private double saldo;

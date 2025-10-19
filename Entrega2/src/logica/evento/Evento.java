@@ -1,6 +1,7 @@
-package modelo.evento;
+package logica.evento;
 import java.util.ArrayList;
-import modelo.usuario.OrganizadorDeEventos;
+
+import logica.usuario.OrganizadorDeEventos;
 
 public class Evento {
 	private String nombre;

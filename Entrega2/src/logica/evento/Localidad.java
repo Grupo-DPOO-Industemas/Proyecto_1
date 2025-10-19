@@ -1,4 +1,4 @@
-package modelo.evento;
+package logica.evento;
 
 public class Localidad {
 	private String nombre;

@@ -1,6 +1,6 @@
-package modelo.tiquete;
+package logica.tiquete;
 
-import modelo.evento.Localidad;
+import logica.evento.Localidad;
 
 public class TiqueteBasico extends Tiquete{
 	
