@@ -87,8 +87,4 @@ public class Evento {
     public String toString() {
         return "Evento: " + nombre + " -> " + fecha + " -> " + hora + " -> " + lugar;
     }
-    
-    
-	
-
 }
