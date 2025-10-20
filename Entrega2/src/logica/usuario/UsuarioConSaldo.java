@@ -1,37 +1,50 @@
 package logica.usuario;
 
 public abstract class UsuarioConSaldo extends Usuario {
-	private double saldo;
 
-	public UsuarioConSaldo(String login, String password) {
-		super(login, password);
-		this.setSaldo(0.0);
-	}
+    protected double saldo;
 
-	public double getSaldo() {
-		return saldo;
-	}
+    public UsuarioConSaldo(String nombreUsuario, String contrasena, String nombreCompleto, double saldoInicial) {
+        super(nombreUsuario, contrasena, nombreCompleto);
+        if (saldoInicial < 0)
+            throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
+        this.saldo = saldoInicial;
+    }
 
-	private void setSaldo(double saldo) {
-		this.saldo = saldo;
-	}
-	
-	public void agregarSaldo(double monto) {
-		if (monto > 0) {
-			saldo += monto;
-		}
-	}
-	
-	public boolean retirarSaldo(double monto) {
-		if (monto > 0 && saldo>= monto) {
-			saldo-= monto;
-			return true;
-		}
-		 return false;
-	}
-	
-	@Override
-	public String toString() {
-		return getTipoUsuario() + ":" + getLogin() + " -> Saldo: " + saldo;
-	}
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void recargarSaldo(double monto) {
+        if (monto <= 0)
+            throw new IllegalArgumentException("El monto de recarga debe ser positivo.");
+        saldo += monto;
+    }
+
+    public void descontarSaldo(double monto) {
+        if (monto <= 0)
+            throw new IllegalArgumentException("El monto de descuento debe ser positivo.");
+        if (monto > saldo)
+            throw new IllegalStateException("Saldo insuficiente.");
+        saldo -= monto;
+    }
+
+    public void aumentarSaldo(double monto) {
+        if (monto <= 0)
+            throw new IllegalArgumentException("El monto debe ser positivo.");
+        saldo += monto;
+    }
+
+    public boolean tieneFondosSuficientes(double monto) {
+        return saldo >= monto;
+    }
+
+    @Override
+    public String toString() {
+        return "UsuarioConSaldo{" +
+                "nombreUsuario='" + nombreUsuario + '\'' +
+                ", nombreCompleto='" + nombreCompleto + '\'' +
+                ", saldo=" + saldo +
+                '}';
+    }
 }
