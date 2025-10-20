@@ -1,60 +1,96 @@
 package logica.evento;
+import logica.tiquete.Tiquete;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Localidad {
-	private String nombre;
+
+    private String nombre;
     private double precioBase;
     private int tiquetesDisponibles;
-    
-    public Localidad(String nombre, double precioBase, int cantidadTiquetesDisponibles) {
+    private boolean numerada;
+    private List<Tiquete> tiquetes;
+    private List<Oferta> ofertas;
+
+    public Localidad(String nombre, double precioBase, int cantidadTiquetesDisponibles, boolean numerada) {
         this.nombre = nombre;
         this.precioBase = precioBase;
         this.tiquetesDisponibles = cantidadTiquetesDisponibles;
+        this.numerada = numerada;
+        this.tiquetes = new ArrayList<>();
+        this.ofertas = new ArrayList<>();
     }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	public void setPrecioBase(double precioBase) {
-		this.precioBase = precioBase;
-	}
+    public void setPrecioBase(double precioBase) {
+        this.precioBase = precioBase;
+    }
 
-	public void setTiquetesDisponibles(int tiquetesDisponibles) {
-		this.tiquetesDisponibles = tiquetesDisponibles;
-	}
+    public void setTiquetesDisponibles(int tiquetesDisponibles) {
+        this.tiquetesDisponibles = tiquetesDisponibles;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public void setNumerada(boolean numerada) {
+        this.numerada = numerada;
+    }
 
-	public double getPrecioBase() {
-		return precioBase;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public int getTiquetesDisponibles() {
-		return tiquetesDisponibles;
-	}
-	
-	public boolean venderTiquetes(int cantidad) {
+    public double getPrecioBase() {
+        return precioBase;
+    }
+
+    public int getTiquetesDisponibles() {
+        return tiquetesDisponibles;
+    }
+
+    public boolean isNumerada() {
+        return numerada;
+    }
+
+    public List<Tiquete> getTiquetes() {
+        return tiquetes;
+    }
+
+    public List<Oferta> getOfertas() {
+        return ofertas;
+    }
+
+    public void agregarTiquete(Tiquete tiquete) {
+        if (tiquete != null) {
+            tiquetes.add(tiquete);
+        }
+    }
+
+    public void agregarOferta(Oferta oferta) {
+        if (oferta != null) {
+            ofertas.add(oferta);
+        }
+    }
+
+    public boolean venderTiquetes(int cantidad) {
         if (cantidad > 0 && cantidad <= tiquetesDisponibles) {
             tiquetesDisponibles -= cantidad;
             return true;
         }
         return false;
     }
-	
-	public void devolverTiquetes(int cantidad) {
+
+    public void devolverTiquetes(int cantidad) {
         if (cantidad > 0) {
-        	tiquetesDisponibles += cantidad;
+            tiquetesDisponibles += cantidad;
         }
     }
-	
-	public String toString() {
-        return nombre + " - Precio base: " + precioBase + " - Disponibles: " + tiquetesDisponibles;
-    }
-	
-	
-    
-    
 
+    @Override
+    public String toString() {
+        return nombre + " - Precio base: " + precioBase +
+               " - Disponibles: " + tiquetesDisponibles +
+               " - Numerada: " + numerada;
+    }
 }
