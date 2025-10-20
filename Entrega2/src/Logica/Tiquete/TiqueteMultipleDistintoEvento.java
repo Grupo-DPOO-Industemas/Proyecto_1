@@ -1,6 +1,6 @@
-package modelo.tiquete;
+package Logica.Tiquete;
 
-import modelo.evento.Localidad;
+import Logica.Evento.Localidad;
 
 public class TiqueteMultipleDistintoEvento extends TiqueteMultiple {
 

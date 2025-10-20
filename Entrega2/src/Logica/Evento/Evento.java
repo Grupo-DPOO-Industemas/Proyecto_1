@@ -1,10 +1,11 @@
-package modelo.evento;
+package Logica.Evento;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.usuario.OrganizadorDeEventos;
-import modelo.tiquete.Tiquete;
+
+import Logica.Tiquete.Tiquete;
+import Logica.Usuario.OrganizadorDeEventos;
 
 public class Evento {
 

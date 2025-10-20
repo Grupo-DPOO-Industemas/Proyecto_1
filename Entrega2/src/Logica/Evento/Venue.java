@@ -1,6 +1,6 @@
-package modelo.evento;
-import modelo.usuario.Administrador;
-import modelo.usuario.OrganizadorDeEventos;
+package Logica.Evento;
+import Logica.Usuario.Administrador;
+import Logica.Usuario.OrganizadorDeEventos;
 
 public class Venue {
 

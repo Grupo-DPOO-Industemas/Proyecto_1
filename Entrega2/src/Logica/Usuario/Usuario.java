@@ -1,4 +1,4 @@
-package modelo.usuario;
+package Logica.Usuario;
 
 public abstract class Usuario {
 	private String login;

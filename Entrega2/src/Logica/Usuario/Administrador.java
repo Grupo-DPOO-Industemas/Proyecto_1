@@ -1,4 +1,4 @@
-package modelo.usuario;
+package Logica.Usuario;
 
 public class Administrador extends Usuario {
 	

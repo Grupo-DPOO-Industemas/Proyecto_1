@@ -1,6 +1,6 @@
-package modelo.tiquete;
+package Logica.Tiquete;
 
-import modelo.evento.Localidad;
+import Logica.Evento.Localidad;
 
 public abstract class Tiquete {
 	protected String identificador;
