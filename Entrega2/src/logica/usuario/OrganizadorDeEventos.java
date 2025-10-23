@@ -1,5 +1,6 @@
-package logica.usuario;
 
+package logica.usuario;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +10,8 @@ import logica.evento.Localidad;
 import logica.evento.Oferta;
 import logica.evento.Venue;
 
-public class OrganizadorDeEventos extends UsuarioConSaldo {
+public class OrganizadorDeEventos extends UsuarioConSaldo implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private List<Evento> eventosCreados;
     private List<Venue> venuesSugeridos;

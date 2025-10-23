@@ -1,9 +1,11 @@
 package logica.evento;
+import java.io.Serializable;
 
 import java.time.LocalDateTime;
 import logica.usuario.OrganizadorDeEventos;
 
-public class Oferta {
+public class Oferta implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private double porcentajeDescuento;

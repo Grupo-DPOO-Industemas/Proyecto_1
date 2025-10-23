@@ -1,10 +1,12 @@
 package logica.tiquete;
+import java.io.Serializable;
 
 import logica.evento.Localidad;
 import logica.evento.Evento;
 import logica.usuario.Cliente;
 
-public abstract class Tiquete {
+public abstract class Tiquete implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     protected String identificador;
     protected double precioBase;

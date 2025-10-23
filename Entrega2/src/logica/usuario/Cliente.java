@@ -1,10 +1,12 @@
-package logica.usuario;
 
+package logica.usuario;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import logica.tiquete.Tiquete;
 
-public class Cliente extends UsuarioConSaldo {
+public class Cliente extends UsuarioConSaldo implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private List<Tiquete> tiquetesComprados;
 

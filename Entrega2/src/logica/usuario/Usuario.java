@@ -1,6 +1,8 @@
-package logica.usuario;
 
-public abstract class Usuario {
+package logica.usuario;
+import java.io.Serializable;
+public abstract class Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     protected String nombreUsuario;
     protected String contrasena;

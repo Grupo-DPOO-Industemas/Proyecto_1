@@ -1,9 +1,11 @@
 package logica.tiquete;
+import java.io.Serializable;
 
 import logica.evento.Evento;
 import logica.evento.Localidad;
 
-public class TiqueteNumerado extends Tiquete {
+public class TiqueteNumerado extends Tiquete implements Serializable {
+    private static final long serialVersionUID = 1L;
 	
 	private int numeroAsiento;
 	

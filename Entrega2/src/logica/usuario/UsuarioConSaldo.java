@@ -1,6 +1,8 @@
-package logica.usuario;
 
-public abstract class UsuarioConSaldo extends Usuario {
+package logica.usuario;
+import java.io.Serializable;
+public abstract class UsuarioConSaldo extends Usuario implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     protected double saldo;
 

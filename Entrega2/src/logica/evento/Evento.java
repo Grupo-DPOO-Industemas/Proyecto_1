@@ -1,4 +1,5 @@
 package logica.evento;
+import java.io.Serializable;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -7,7 +8,8 @@ import java.util.List;
 import logica.tiquete.Tiquete;
 import logica.usuario.OrganizadorDeEventos;
 
-public class Evento {
+public class Evento implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private LocalDateTime fechaHora;

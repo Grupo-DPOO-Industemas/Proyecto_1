@@ -2,8 +2,10 @@ package logica.evento;
 import logica.tiquete.Tiquete;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.Serializable;
 
-public class Localidad {
+public class Localidad implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String nombre;
     private double precioBase;

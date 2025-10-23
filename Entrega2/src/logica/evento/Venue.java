@@ -1,8 +1,10 @@
 package logica.evento;
 import logica.usuario.Administrador;
 import logica.usuario.OrganizadorDeEventos;
+import java.io.Serializable;
 
-public class Venue {
+public class Venue implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String ubicacion;
     private int capacidadMaxima;
