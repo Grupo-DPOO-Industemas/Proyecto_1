@@ -11,7 +11,7 @@ public class TiqueteBasico extends Tiquete{
 	
 
 	@Override
-	public double calcularPrecio() {
+	public double calcularPrecioFinal() {
 		return precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision;
 	}
 	

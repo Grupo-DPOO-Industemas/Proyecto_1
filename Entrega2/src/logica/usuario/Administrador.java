@@ -1,5 +1,6 @@
 package logica.usuario;
 
+import logica.tiquete.Tiquete;
 import logica.evento.Venue;
 
 public class Administrador extends Usuario {
@@ -35,6 +36,18 @@ public class Administrador extends Usuario {
         if (!venue.isAprobado())
             throw new IllegalStateException("El venue no está aprobado.");
         venue.revocarAprobacion();
+    }
+    
+    public boolean aprobarReembolsoCliente(Tiquete tiquete, String motivo) {
+        if (tiquete == null)
+            throw new IllegalArgumentException("El tiquete no puede ser nulo.");
+        if (motivo == null)
+            return false;
+        // Use equalsIgnoreCase for string comparison and return the decision.
+        if ("Calamidad".equalsIgnoreCase(motivo)) {
+            return true;
+        }
+        return false;
     }
 
     @Override

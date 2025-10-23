@@ -4,11 +4,11 @@ public abstract class UsuarioConSaldo extends Usuario {
 
     protected double saldo;
 
-    public UsuarioConSaldo(String nombreUsuario, String contrasena, String nombreCompleto, double saldoInicial) {
+    public UsuarioConSaldo(String nombreUsuario, String contrasena, String nombreCompleto, double saldo) {
         super(nombreUsuario, contrasena, nombreCompleto);
-        if (saldoInicial < 0)
-            throw new IllegalArgumentException("El saldo inicial no puede ser negativo.");
-        this.saldo = saldoInicial;
+        if (saldo < 0)
+            throw new IllegalArgumentException("El saldo no puede ser negativo.");
+        this.saldo = saldo;
     }
 
     public double getSaldo() {

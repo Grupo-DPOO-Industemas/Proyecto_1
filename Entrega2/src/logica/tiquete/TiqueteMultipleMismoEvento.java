@@ -11,7 +11,7 @@ public class TiqueteMultipleMismoEvento extends TiqueteMultiple{
 	}
 
 	@Override
-	public double calcularPrecio() {
+	public double calcularPrecioFinal() {
 		// TODO Auto-generated method stub
 		return cantidadAccesos * (precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision);
 	}

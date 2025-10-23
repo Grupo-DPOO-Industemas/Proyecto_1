@@ -11,7 +11,7 @@ public class TiqueteMultipleDistintoEvento extends TiqueteMultiple {
 	}
 
 	@Override
-	public double calcularPrecio() {
+	public double calcularPrecioFinal() {
 		double total = cantidadAccesos * (precioBase + (precioBase * cargoPorcentual) + cuotaAdicionalEmision);
         return total * 1.10;
 	}

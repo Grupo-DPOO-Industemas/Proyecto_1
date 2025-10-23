@@ -8,8 +8,8 @@ public class Cliente extends UsuarioConSaldo {
 
     private List<Tiquete> tiquetesComprados;
 
-    public Cliente(String nombreUsuario, String contrasena, String nombreCompleto, double saldoInicial) {
-        super(nombreUsuario, contrasena, nombreCompleto, saldoInicial);
+    public Cliente(String nombreUsuario, String contrasena, String nombreCompleto, double saldo) {
+        super(nombreUsuario, contrasena, nombreCompleto, saldo);
         this.tiquetesComprados = new ArrayList<>();
     }
 
@@ -28,7 +28,7 @@ public class Cliente extends UsuarioConSaldo {
         if (tiquete == null)
             throw new IllegalArgumentException("El tiquete no puede ser nulo.");
 
-        double precio = tiquete.getPrecioFinal();
+        double precio = tiquete.calcularPrecioFinal();
 
         if (precio > getSaldo()) {
             System.out.println("Saldo insuficiente para comprar el tiquete.");
@@ -46,15 +46,18 @@ public class Cliente extends UsuarioConSaldo {
         return true;
     }
 
-    public boolean solicitarReembolso(Tiquete tiquete) {
+    public String solicitarReembolso(Tiquete tiquete, Administrador administrador, String motivo) {
         if (tiquete == null || !tiquetesComprados.contains(tiquete)) {
-            System.out.println("El tiquete no pertenece al cliente.");
-            return false;
+            return "El tiquete no pertenece al cliente.";
         }
 
-        // marcamos el rembolso, no se ejecuta 
-        tiquete.setReembolsoPendiente(true);
-        return true;
+        boolean aprobado = administrador.aprobarReembolsoCliente(tiquete, motivo);
+        if (!aprobado) {
+            return "Solicitud de reembolso denegada para el tiquete " + tiquete.getIdentificador() + ".";
+        }
+        aumentarSaldo(tiquete.getPrecioBase());
+        tiquete.marcarComoReembolsado();
+        return "Solicitud de reembolso para el tiquete " + tiquete.getIdentificador() + " ha sido aprobada.";
     }
 
     public boolean transferirTiquete(Tiquete tiquete, Cliente nuevoDueno) {

@@ -81,7 +81,7 @@ public abstract class Tiquete {
         this.estado = estado;
     }
 
-    public boolean isVendido() {
+	public boolean isVendido() {
         return "vendido".equalsIgnoreCase(estado);
     }
 
@@ -99,7 +99,7 @@ public abstract class Tiquete {
         this.estado = "transferido";
     }
 
-    public abstract double calcularPrecio();
+    public abstract double calcularPrecioFinal();
 
     @Override
     public String toString() {

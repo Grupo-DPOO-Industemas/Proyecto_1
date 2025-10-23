@@ -24,6 +24,6 @@ public abstract class TiqueteMultiple extends Tiquete {
 	
 	
 	@Override
-	public abstract double calcularPrecio();
+	public abstract double calcularPrecioFinal();
 
 }
